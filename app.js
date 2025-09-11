@@ -2,6 +2,11 @@
 // tenant_manager
 // (AppBuilder) A service to manage the site&#39;s tenants
 //
+console.log("DEBUG: 9-10-3");
+Object.keys(process.env).forEach((key) => {
+   if (key.startsWith("COTE")) console.log(`DEBUG: 1 ${key}`, process.env[key]);
+});
+// controller.afterStartup((cb)=>{ return cb(/* err */) });
 const AB = require("@digiserve/ab-utils");
 const { version } = require("./package");
 // Use sentry by default, but can override with env.TELEMETRY_PROVIDER
@@ -14,14 +19,13 @@ if (AB.defaults.env("TELEMETRY_PROVIDER", "sentry") == "sentry") {
       release: version,
    });
 }
+Object.keys(process.env).forEach((key) => {
+   if (key.startsWith("COTE")) console.log(`DEBUG: 2 ${key}`, process.env[key]);
+});
 
 var controller = AB.controller("tenant_manager");
-Object.keys(process.env).forEach((key) => {
-   if (key.startsWith("COTE"))
-      console.log(`## DEBUG: ${key}`, process.env[key]);
-});
-console.log(process.env);
-console.log("DEBUG 9-10-2");
-// controller.afterStartup((cb)=>{ return cb(/* err */) });
 // controller.beforeShutdown((cb)=>{ return cb(/* err */) });
+Object.keys(process.env).forEach((key) => {
+   if (key.startsWith("COTE")) console.log(`DEBUG: 3 ${key}`, process.env[key]);
+});
 controller.init();
