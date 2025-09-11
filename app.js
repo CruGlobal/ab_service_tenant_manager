@@ -2,7 +2,7 @@
 // tenant_manager
 // (AppBuilder) A service to manage the site&#39;s tenants
 //
-console.log("DEBUG: 9-10-3");
+console.log("DEBUG: 9-10-4");
 Object.keys(process.env).forEach((key) => {
    if (key.startsWith("COTE")) console.log(`DEBUG: 1 ${key}`, process.env[key]);
 });
