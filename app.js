@@ -20,7 +20,8 @@ Object.keys(process.env).forEach((key) => {
    if (key.startsWith("COTE"))
       console.log(`## DEBUG: ${key}`, process.env[key]);
 });
-console.log("DEBUG 9-10-1");
+console.log(process.env);
+console.log("DEBUG 9-10-2");
 // controller.afterStartup((cb)=>{ return cb(/* err */) });
 // controller.beforeShutdown((cb)=>{ return cb(/* err */) });
 controller.init();
