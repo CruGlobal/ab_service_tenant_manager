@@ -16,6 +16,11 @@ if (AB.defaults.env("TELEMETRY_PROVIDER", "sentry") == "sentry") {
 }
 
 var controller = AB.controller("tenant_manager");
+Object.keys(process.env).forEach((key) => {
+   if (key.startsWith("COTE"))
+      console.log(`## DEBUG: ${key}`, process.env[key]);
+});
+console.log("DEBUG 9-10-1");
 // controller.afterStartup((cb)=>{ return cb(/* err */) });
 // controller.beforeShutdown((cb)=>{ return cb(/* err */) });
 controller.init();
