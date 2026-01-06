@@ -23,7 +23,7 @@ module.exports = function (req, data) {
          `{ "title":"${data.title}", "authType":"${data.authType}", "url":"${data.url}" }`
       );
 
-      req.query(sql, values, (error, results, fields) => {
+      req.query(sql, values, (error, results /*, fields */) => {
          if (error) {
             req.log(sql);
             reject(error);
