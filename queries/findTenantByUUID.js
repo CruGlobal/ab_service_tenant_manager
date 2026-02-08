@@ -17,7 +17,7 @@ module.exports = function (req, uuid) {
 SELECT * FROM ${tenantDB}\`site_tenant\`
 WHERE \`uuid\` = ? `;
 
-      req.query(sql, [uuid], (error, results, fields) => {
+      req.query(sql, [uuid], (error, results /*, fields*/) => {
          if (error) {
             req.log(sql);
             reject(error);
