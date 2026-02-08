@@ -27,7 +27,7 @@ function getSiteConfigValue(req, key) {
             resolve(results[0].value);
          } else {
             reject(
-               new Error(`Could not find site config entry for key '${key}'`)
+               new Error(`Could not find site config entry for key '${key}'`),
             );
          }
       });

@@ -158,6 +158,7 @@ async function GetPrivacyPolicy(req, config) {
       const link = await getSiteConfigValue(req, "privacy-policy");
       config.site = config.site ?? {};
       config.site.privacyPolicy = link;
+      // eslint-disable-next-line no-unused-vars
    } catch (err) {
       // It's ok, the site might not have this key set;
    }

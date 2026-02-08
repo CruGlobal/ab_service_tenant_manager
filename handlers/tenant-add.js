@@ -3,7 +3,6 @@
  * our Request handler.
  */
 const AB = require("@digiserve/ab-utils");
-const async = require("async");
 const fs = require("fs").promises;
 const path = require("path");
 const sqlCreateTenant = require("../queries/createTenant.js");
@@ -110,7 +109,7 @@ module.exports = {
                      AdminData[`##admin-${k}##`] = results[k];
                   });
                   done();
-               }
+               },
             );
          });
 
@@ -121,7 +120,7 @@ module.exports = {
          req.log("generating new tenant SQL");
          let contentsTemplate = await fs.readFile(
             path.join(__dirname, "..", "utils", "new_tenant.sql"),
-            "utf8"
+            "utf8",
          );
          // contents is a template that we must now fill out with our data
          Object.keys(AdminData).forEach((k) => {
@@ -169,7 +168,7 @@ module.exports = {
             {
                tenantID: "all",
             },
-            () => {}
+            () => {},
          );
       } catch (e) {
          req.notify.developer(e, {
