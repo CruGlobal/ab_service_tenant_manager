@@ -3,9 +3,9 @@
  * return the bootstrap version information needed for the given tenant.
  */
 
-let { ConfigVersionCache } = require("../utils/cache");
+import { ConfigVersionCache } from "../utils/cache.js";
 
-module.exports = {
+export default {
    /**
     * Key: the cote message key we respond to.
     */
@@ -26,7 +26,9 @@ module.exports = {
       try {
          const tenantID = req.param("tenantID") ?? req.tenantID();
          if (tenantID === "all") {
-            ConfigVersionCache = {};
+            Object.keys(ConfigVersionCache).forEach(
+               (k) => delete ConfigVersionCache[k],
+            );
          } else {
             delete ConfigVersionCache[tenantID];
          }

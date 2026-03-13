@@ -3,8 +3,8 @@
  * return the bootstrap version information needed for the given tenant.
  */
 
-const { ConfigVersionCache } = require("../utils/cache.js");
-const TMConfigSite = require("./config-site.js");
+import { ConfigVersionCache } from "../utils/cache.js";
+import TMConfigSite from "./config-site.js";
 
 /**
  * @function hashCode()
@@ -24,7 +24,7 @@ function hashCode(str) {
       );
 }
 
-module.exports = {
+export default {
    /**
     * Key: the cote message key we respond to.
     */

@@ -3,11 +3,11 @@
  * return the bootstrap information needed for the given tenant.
  */
 
-const getSiteConfigValue = require("../queries/getSiteConfig.js");
-const TMConfig = require("./config.js");
-const TMList = require("./list.js");
+import getSiteConfigValue from "../queries/getSiteConfig.js";
+import TMConfig from "./config.js";
+import TMList from "./list.js";
 
-module.exports = {
+export default {
    /**
     * Key: the cote message key we respond to.
     */

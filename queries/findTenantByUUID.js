@@ -1,4 +1,4 @@
-module.exports = function (req, uuid) {
+export default function (req, uuid) {
    return new Promise((resolve, reject) => {
       let tenantDB = "`appbuilder-admin`";
       // {string} tenantDB
@@ -26,4 +26,4 @@ WHERE \`uuid\` = ? `;
          }
       });
    });
-};
+}

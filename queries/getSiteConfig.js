@@ -33,4 +33,4 @@ function getSiteConfigValue(req, key) {
       });
    });
 }
-module.exports = getSiteConfigValue;
+export default getSiteConfigValue;

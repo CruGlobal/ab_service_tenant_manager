@@ -2,9 +2,9 @@
  * tenant-url
  * our Request handler.
  */
-const queryFindTenantByUUID = require("../queries/findTenantByUUID.js");
+import queryFindTenantByUUID from "../queries/findTenantByUUID.js";
 
-module.exports = {
+export default {
    /**
     * Key: the cote message key we respond to.
     */
