@@ -1,4 +1,4 @@
-module.exports = function (req, key) {
+export default function (req, key) {
    return new Promise((resolve, reject) => {
       let tenantDB = "`appbuilder-admin`";
       // {string} tenantDB
@@ -26,4 +26,4 @@ WHERE \`key\` = ? `;
          }
       });
    });
-};
+}

@@ -2,7 +2,7 @@
  * config
  * our Request handler.
  */
-const queryFindTenantByUUID = require("../queries/findTenantByUUID.js");
+import queryFindTenantByUUID from "../queries/findTenantByUUID.js";
 
 function returnDefaultTenant(cb) {
    cb(null, {
@@ -14,7 +14,7 @@ function returnDefaultTenant(cb) {
    });
 }
 
-module.exports = {
+export default {
    /**
     * Key: the cote message key we respond to.
     */

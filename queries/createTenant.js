@@ -1,6 +1,6 @@
-const AB = require("@digiserve/ab-utils");
+import AB from "@digiserve/ab-utils";
 
-module.exports = function (req, data) {
+export default function (req, data) {
    return new Promise((resolve, reject) => {
       let tenantDB = "`appbuilder-admin`";
       // {string} tenantDB
@@ -32,4 +32,4 @@ module.exports = function (req, data) {
          }
       });
    });
-};
+}

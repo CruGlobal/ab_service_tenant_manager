@@ -2,9 +2,9 @@
  * find
  * our Request handler.
  */
-const queryFindTenantByKey = require("../queries/findTenantByKey.js");
+import queryFindTenantByKey from "../queries/findTenantByKey.js";
 
-module.exports = {
+export default {
    /**
     * Key: the cote message key we respond to.
     */
