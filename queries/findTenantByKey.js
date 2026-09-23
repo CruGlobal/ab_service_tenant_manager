@@ -1,4 +1,4 @@
-module.exports = function (req, key) {
+export default function (req, key) {
    return new Promise((resolve, reject) => {
       let tenantDB = "`appbuilder-admin`";
       // {string} tenantDB
@@ -17,7 +17,7 @@ module.exports = function (req, key) {
 SELECT * FROM ${tenantDB}\`site_tenant\`
 WHERE \`key\` = ? `;
 
-      req.query(sql, [key], (error, results, fields) => {
+      req.query(sql, [key], (error, results /*, fields*/) => {
          if (error) {
             req.log(sql);
             reject(error);
@@ -26,4 +26,4 @@ WHERE \`key\` = ? `;
          }
       });
    });
-};
+}

@@ -6,4 +6,4 @@
 const ConfigVersionCache = {
    /* tenantID : "config version hash" */
 };
-module.exports = { ConfigVersionCache };
+export { ConfigVersionCache };

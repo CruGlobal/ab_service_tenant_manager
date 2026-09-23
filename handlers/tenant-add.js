@@ -2,14 +2,16 @@
  * tenant-add
  * our Request handler.
  */
-const AB = require("@digiserve/ab-utils");
-const async = require("async");
-const fs = require("fs").promises;
-const path = require("path");
-const sqlCreateTenant = require("../queries/createTenant.js");
-const sqlFindTenantByKey = require("../queries/findTenantByKey.js");
+import AB from "@digiserve/ab-utils";
+import { promises as fs } from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+import sqlCreateTenant from "../queries/createTenant.js";
 
-module.exports = {
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+import sqlFindTenantByKey from "../queries/findTenantByKey.js";
+
+export default {
    /**
     * Key: the cote message key we respond to.
     */
@@ -110,7 +112,7 @@ module.exports = {
                      AdminData[`##admin-${k}##`] = results[k];
                   });
                   done();
-               }
+               },
             );
          });
 
@@ -121,7 +123,7 @@ module.exports = {
          req.log("generating new tenant SQL");
          let contentsTemplate = await fs.readFile(
             path.join(__dirname, "..", "utils", "new_tenant.sql"),
-            "utf8"
+            "utf8",
          );
          // contents is a template that we must now fill out with our data
          Object.keys(AdminData).forEach((k) => {
@@ -169,7 +171,7 @@ module.exports = {
             {
                tenantID: "all",
             },
-            () => {}
+            () => {},
          );
       } catch (e) {
          req.notify.developer(e, {

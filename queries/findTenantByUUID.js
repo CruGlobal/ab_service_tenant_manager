@@ -1,4 +1,4 @@
-module.exports = function (req, uuid) {
+export default function (req, uuid) {
    return new Promise((resolve, reject) => {
       let tenantDB = "`appbuilder-admin`";
       // {string} tenantDB
@@ -17,7 +17,7 @@ module.exports = function (req, uuid) {
 SELECT * FROM ${tenantDB}\`site_tenant\`
 WHERE \`uuid\` = ? `;
 
-      req.query(sql, [uuid], (error, results, fields) => {
+      req.query(sql, [uuid], (error, results /*, fields*/) => {
          if (error) {
             req.log(sql);
             reject(error);
@@ -26,4 +26,4 @@ WHERE \`uuid\` = ? `;
          }
       });
    });
-};
+}

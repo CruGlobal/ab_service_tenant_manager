@@ -2,9 +2,9 @@
  * list
  * our Request handler.
  */
-const queryFindAllTenants = require("../queries/findAllTenants.js");
+import queryFindAllTenants from "../queries/findAllTenants.js";
 
-module.exports = {
+export default {
    /**
     * Key: the cote message key we respond to.
     */

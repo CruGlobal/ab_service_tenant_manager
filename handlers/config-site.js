@@ -3,11 +3,11 @@
  * return the bootstrap information needed for the given tenant.
  */
 
-const getSiteConfigValue = require("../queries/getSiteConfig.js");
-const TMConfig = require("./config.js");
-const TMList = require("./list.js");
+import getSiteConfigValue from "../queries/getSiteConfig.js";
+import TMConfig from "./config.js";
+import TMList from "./list.js";
 
-module.exports = {
+export default {
    /**
     * Key: the cote message key we respond to.
     */
@@ -158,6 +158,7 @@ async function GetPrivacyPolicy(req, config) {
       const link = await getSiteConfigValue(req, "privacy-policy");
       config.site = config.site ?? {};
       config.site.privacyPolicy = link;
+      // eslint-disable-next-line no-unused-vars
    } catch (err) {
       // It's ok, the site might not have this key set;
    }

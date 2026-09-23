@@ -1,6 +1,6 @@
-const AB = require("@digiserve/ab-utils");
+import AB from "@digiserve/ab-utils";
 
-module.exports = function (req, data) {
+export default function (req, data) {
    return new Promise((resolve, reject) => {
       let tenantDB = "`appbuilder-admin`";
       // {string} tenantDB
@@ -20,7 +20,7 @@ module.exports = function (req, data) {
       values.push(AB.uuid()); // uuid
       values.push(data.key); // key
       values.push(
-         `{ "title":"${data.title}", "authType":"${data.authType}", "url":"${data.url}" }`
+         `{ "title":"${data.title}", "authType":"${data.authType}", "url":"${data.url}" }`,
       );
 
       req.query(sql, values, (error, results /*, fields */) => {
@@ -32,4 +32,4 @@ module.exports = function (req, data) {
          }
       });
    });
-};
+}
